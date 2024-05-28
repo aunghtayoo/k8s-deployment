@@ -63,7 +63,7 @@ metadata:
 data:
   external_application.yaml: |
     server:
-      port: 8002
+      port: 8082
       servlet:
         contextPath: /ms2
 ---
