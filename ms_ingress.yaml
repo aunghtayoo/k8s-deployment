@@ -12,6 +12,14 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: spring-rest-helloworld-service
+                name: microservice-1-service
                 port:
                   number: 8082
+          - path: /ms2
+            pathType: Prefix
+            backend:
+              service:
+                name: microservice-2-service
+                port:
+                  number: 8082
+---
