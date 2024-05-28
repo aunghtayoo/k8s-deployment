@@ -18,7 +18,7 @@ spec:
       - name: microservice-1
         image: aunghtayoo/microservice-1:1.0.0
         ports:
-        - containerPort: 8888
+        - containerPort: 8082
         resources:
           limits:
             memory: 256Mi
