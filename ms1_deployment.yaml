@@ -66,5 +66,5 @@ data:
       port: 8082
       servlet:
         contextPath: /ms1
-    ms2_url: http://192.168.50.222:9992/ms2
+    ms2_url: http://microservice-2-service:8082/ms2
 ---
