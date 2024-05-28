@@ -1,1 +1,28 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice-1-deployment
+  labels:
+    app: microservice-1
+spec:
+  selector:
+    matchLabels:
+      app: microservice-1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: microservice-1
+    spec:
+      containers:
+      - name: microservice-1
+        image: aunghtayoo/microservice-1:1.0.0
+        ports:
+        - containerPort: 8888
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: "250m"
+          requests:
+            memory: 128Mi
+            cpu: "80m"
