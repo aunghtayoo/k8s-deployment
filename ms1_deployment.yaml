@@ -27,6 +27,18 @@ spec:
           requests:
             memory: 128Mi
             cpu: "80m"
+        volumeMounts:
+        - name: microservice-1-config-volume
+          readOnly: true
+          mountPath: /opt/mutu/external_application.yaml
+          subPath: external_application.yaml
+      volumes:
+        - name: microservice-1-config-volume
+          configMap:
+            name: microservice-1-config
+            items:
+            - key: external_application.yaml
+              path: external_application.yaml
 ---
 apiVersion: v1
 kind: Service
@@ -41,4 +53,18 @@ spec:
   - port: 8082
     protocol: TCP
     targetPort: 8082
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: microservice-1-config
+  labels:
+      app: microservice-1-config
+data:
+  external_application.yaml: |
+    server:
+      port: 8888
+      servlet:
+        contextPath: /ms1
+    ms2_url: http://192.168.50.222:9992/ms2
 ---
