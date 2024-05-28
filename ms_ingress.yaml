@@ -1,0 +1,17 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: helloworld-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /ms1
+            pathType: Prefix
+            backend:
+              service:
+                name: spring-rest-helloworld-service
+                port:
+                  number: 8082
